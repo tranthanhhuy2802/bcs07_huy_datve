@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 class HangGhe extends Component {
   renderGhe = () => {
+    if(this.props.hangGhe.hang !== ""){
     return this.props.hangGhe.danhSachGhe.map((ghe, index) => {
       let cssGheDaDat = "";
       let disabled = false;
@@ -33,38 +34,31 @@ class HangGhe extends Component {
         </button>
       );
     });
+  }else {return this.props.hangGhe.danhSachGhe.map((hang, index) => {
+        if(this.props.hangGhe.hang===""){
+        return (
+          <span className="rowNumber" key={index}>
+            {hang.soGhe}
+          </span>
+        );
+        }
+      });}
+  
   };
 
-  renderSoHang = () => {
-    return this.props.hangGhe.danhSachGhe.map((hang, index) => {
-      return (
-        <span className="rowNumber" key={index}>
-          {hang.soGhe}
-        </span>
-      );
-    });
-  };
 
   renderHangGhe = () => {
-    if (this.props.soHangGhe === 0) {
       return (
-        <div>
-          {this.props.hangGhe.hang}
-          {this.renderSoHang()}
-        </div>
-      );
-    } else {
-      return (
-        <div>
+        <div>        
           {this.props.hangGhe.hang}
           {this.renderGhe()}
         </div>
       );
-    }
+    
   };
 
   render() {
-    return <div className="text-light mt-3 me-5">{this.renderHangGhe()}</div>;
+    return <div className="text-light  mt-3 me-5" style={{fontSize:"30px"}}>{this.renderHangGhe()}</div>;
   }
 }
 
