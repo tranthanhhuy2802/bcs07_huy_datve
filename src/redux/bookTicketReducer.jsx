@@ -15,10 +15,8 @@ export const bookticketReducer = (state = initialState, action) => {
       // console.log(index);
 
       if (index == -1) {
-        console.log(`Im adding: ${action.payload.soGhe}`);
         newDanhSachGheDangDat.push(action.payload);
       } else {
-        console.log(`Im removing: ${action.payload.soGhe}`);
         newDanhSachGheDangDat.splice(index, 1);
       }
 
@@ -34,7 +32,6 @@ export const bookticketReducer = (state = initialState, action) => {
       console.log(index);
 
       if (index != -1) {
-        console.log(`Im removing: ${action.payload.soGhe}`);
         newDanhSachGheDangDat.splice(index, 1);
       }
 
